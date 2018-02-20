@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4E19942D203660BC00E9FBB9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E19942C203660BC00E9FBB9 /* main.cpp */; };
+		4E19942D203660BC00E9FBB9 /* GameHost.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E19942C203660BC00E9FBB9 /* GameHost.cpp */; };
+		4E19943B2036614100E9FBB9 /* Graphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E1994352036614100E9FBB9 /* Graphics.cpp */; };
+		4E19943C2036614100E9FBB9 /* Sensor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E1994372036614100E9FBB9 /* Sensor.cpp */; };
+		4E19943D2036614100E9FBB9 /* Physics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E19943A2036614100E9FBB9 /* Physics.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +27,15 @@
 
 /* Begin PBXFileReference section */
 		4E199429203660BC00E9FBB9 /* AR_AIr_Hockey_2.2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AR_AIr_Hockey_2.2; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E19942C203660BC00E9FBB9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		4E19942C203660BC00E9FBB9 /* GameHost.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameHost.cpp; sourceTree = "<group>"; };
+		4E1994332036614100E9FBB9 /* Physics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Physics.h; sourceTree = "<group>"; };
+		4E1994342036614100E9FBB9 /* Graphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Graphics.h; sourceTree = "<group>"; };
+		4E1994352036614100E9FBB9 /* Graphics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Graphics.cpp; sourceTree = "<group>"; };
+		4E1994362036614100E9FBB9 /* Sensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sensor.h; sourceTree = "<group>"; };
+		4E1994372036614100E9FBB9 /* Sensor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sensor.cpp; sourceTree = "<group>"; };
+		4E1994382036614100E9FBB9 /* GameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameData.h; sourceTree = "<group>"; };
+		4E1994392036614100E9FBB9 /* GameHost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHost.h; sourceTree = "<group>"; };
+		4E19943A2036614100E9FBB9 /* Physics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Physics.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +68,15 @@
 		4E19942B203660BC00E9FBB9 /* AR_AIr_Hockey_2.2 */ = {
 			isa = PBXGroup;
 			children = (
-				4E19942C203660BC00E9FBB9 /* main.cpp */,
+				4E1994382036614100E9FBB9 /* GameData.h */,
+				4E1994392036614100E9FBB9 /* GameHost.h */,
+				4E1994352036614100E9FBB9 /* Graphics.cpp */,
+				4E1994342036614100E9FBB9 /* Graphics.h */,
+				4E19943A2036614100E9FBB9 /* Physics.cpp */,
+				4E1994332036614100E9FBB9 /* Physics.h */,
+				4E1994372036614100E9FBB9 /* Sensor.cpp */,
+				4E1994362036614100E9FBB9 /* Sensor.h */,
+				4E19942C203660BC00E9FBB9 /* GameHost.cpp */,
 			);
 			path = AR_AIr_Hockey_2.2;
 			sourceTree = "<group>";
@@ -119,7 +138,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E19942D203660BC00E9FBB9 /* main.cpp in Sources */,
+				4E19943B2036614100E9FBB9 /* Graphics.cpp in Sources */,
+				4E19942D203660BC00E9FBB9 /* GameHost.cpp in Sources */,
+				4E19943C2036614100E9FBB9 /* Sensor.cpp in Sources */,
+				4E19943D2036614100E9FBB9 /* Physics.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +255,26 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = (
+					"-lopencv_calib3d",
+					"-lopencv_core",
+					"-lopencv_features2d",
+					"-lopencv_flann",
+					"-lopencv_highgui",
+					"-lopencv_imgcodecs",
+					"-lopencv_imgproc",
+					"-lopencv_ml",
+					"-lopencv_objdetect",
+					"-lopencv_photo",
+					"-lopencv_shape",
+					"-lopencv_stitching",
+					"-lopencv_superres",
+					"-lopencv_video",
+					"-lopencv_videoio",
+					"-lopencv_videostab",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -241,6 +283,26 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = (
+					"-lopencv_calib3d",
+					"-lopencv_core",
+					"-lopencv_features2d",
+					"-lopencv_flann",
+					"-lopencv_highgui",
+					"-lopencv_imgcodecs",
+					"-lopencv_imgproc",
+					"-lopencv_ml",
+					"-lopencv_objdetect",
+					"-lopencv_photo",
+					"-lopencv_shape",
+					"-lopencv_stitching",
+					"-lopencv_superres",
+					"-lopencv_video",
+					"-lopencv_videoio",
+					"-lopencv_videostab",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
